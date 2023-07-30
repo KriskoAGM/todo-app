@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        {% if not all_tasks %}
+    <!-- Display paragraph: If there are no cars yet-->
+        <p class="no-articles">No Tasks yet</p>
+
+        
+        <!-- Display div "car" with information about every car (if any)-->
+        {% else %}
+        <section id="catalogue">
+                <!-- first car-->
+                {% for task in all_tasks %}
+                <div class="car-card">
+                    <!-- car type -->
+                    <h3>{{ task.title }}</h3>
+                    <!-- car model -->
+                    <h1>{{ task.description }}</h1>
+                    <div class="details-buttons">
+                        <!-- car details button -->
+                        <a href="" class="details-btn">Details</a>
+                    </div>
+                </div>
+                {% endfor %}
+        </section>
+        {% endif %}
+{% endblock %}
