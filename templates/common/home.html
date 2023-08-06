@@ -18,7 +18,7 @@
                     <h1>{{ task.description }}</h1>
                     <div class="details-buttons">
                         <!-- car details button -->
-                        <a href="" class="details-btn">Details</a>
+                        <a href="{% url 'task-details' pk=task.pk %}" class="details-btn">Details</a>
                     </div>
                 </div>
                 {% endfor %}

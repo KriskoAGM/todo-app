@@ -25,7 +25,7 @@
                 <!-- if the user has created a profile -->
                 <a href="{% url 'home' %}">Tasks</a>
                 <a href="{% url 'add-task' %}">New Task</a>
-                <a href="">{{ request.user }}</a>
+                <a href="{% url 'profile-details' %}">{{ request.user }}</a>
                 <a href="{% url 'logout' %}">Logout</a>
             {% endif %}
 

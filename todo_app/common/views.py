@@ -9,8 +9,8 @@ def index(request):
 
     return render(request, '../templates/common/index.html')
 
-@login_required
-def catalogue(request):
+@login_required(login_url='login')
+def home_page(request):
     all_tasks = Task.objects.filter(user=request.user)
 
     context = {

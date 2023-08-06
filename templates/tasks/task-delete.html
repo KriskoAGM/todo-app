@@ -3,15 +3,15 @@
 {% block content %}
     <!-- edit game form -->
     <section id="delete-page" class="auth">
-        <form id="delete" method="post" action="{% url 'car-delete' pk=car.pk %}">
+        <form id="delete" method="post" action="">
             <div class="container">
 
-                <h1>Delete Car</h1>
+                <h1>Delete Task</h1>
                 
                 {{ form }}
                 {% csrf_token %}
 
-                <input class="btn submit" type="submit" value="Delete Car">
+                <input class="btn submit" type="submit" value="Delete Task">
 
             </div>
         </form>

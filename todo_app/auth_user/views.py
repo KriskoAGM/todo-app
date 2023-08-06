@@ -8,6 +8,9 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth import forms as auth_forms
 from django.views import generic as views
 
+from django.contrib.auth.decorators import login_required
+
+
 # Create your views here.
 
 
@@ -32,3 +35,14 @@ class LoginUserView(auth_views.LoginView):
 
 class LogoutUserView(auth_views.LogoutView):
     pass
+
+
+@login_required(login_url='login')
+def profile_details(request):
+    profile = request.user
+
+    context = {
+        'profile': profile,
+    }
+
+    return render(request, '../templates/auth_user/profile-details.html', context=context)

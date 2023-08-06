@@ -4,5 +4,5 @@ from todo_app.common import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('catalogue/', views.catalogue, name='home'),
+    path('home/', views.home_page, name='home'),
 ]

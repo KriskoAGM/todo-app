@@ -3,28 +3,23 @@
 {% block content %}
     <!-- details section -->
     <section id="car-details">
-        <h1>Car Details</h1>
+        <h1>Details</h1>
         <div class="info-section">
             <div class="car-header">
-                <!-- car image -->
-                <img class="car-img"
-                     src="{{ car.image_url }}"
-                     alt='car image'/>
-                <!-- type and model -->
-                <h1>{{ car.car_type }}</h1>
                 <!-- car model -->
-                <p><span class="description">Model: {{ car.model }}</span></p>
+                <p><span class="description">Title: {{ task.title }}</span></p>
                 <!-- car year -->
-                <p><span class="description">Year: {{ car.year }}</span></p>
+                <p><span class="description">Description: {{ task.description }}</span></p>
                 <!-- car price -->
-                <p><span class="description">Price: {{ car.price }}</span></p>
+                <p><span class="description">Created at: {{ task.created_at }}</span></p>
+                <p><span class="description">Due date: {{ task.due_date }}</span></p>
             </div>
 
 
             <!-- Edit/Delete buttons -->
             <div class="buttons">
-                <a href="{% url 'car-edit' pk=car.pk %}" class="edit-button">Edit</a>
-                <a href="{% url 'car-delete' pk=car.pk %}" class="delete-button">Delete</a>
+                <a href="{% url 'edit-task' pk=task.id %}" class="edit-button">Edit</a>
+                <a href="{% url 'delete-task' pk=task.id %}" class="delete-button">Delete</a>
             </div>
         </div>
     </section>
