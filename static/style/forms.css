@@ -149,3 +149,8 @@ textarea {
     margin-top: 15px;
     color: white;
 }
+
+.comment-text {
+    color: white;
+    margin-top: 25px;
+}

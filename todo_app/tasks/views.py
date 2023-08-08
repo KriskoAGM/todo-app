@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
-from todo_app.tasks.forms import TaskForm, DeleteTaskForm
+from todo_app.tasks.forms import TaskForm, TaskCommentForm
 from todo_app.tasks.models import Task
 
 from django.contrib.auth.decorators import login_required
@@ -66,3 +66,39 @@ def delete_task(request, pk):
         return redirect('home')
     
     return render(request, '../templates/tasks/task-delete.html')
+
+
+@login_required(login_url='login')
+def add_comment(request, pk):
+    task = get_object_or_404(Task, id=pk)
+
+    if request.method == 'POST':
+        form = TaskCommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.task = task
+            comment.user = request.user
+            comment.save()
+            return redirect('task-details', pk=task.id)
+    else:
+        form = TaskCommentForm()
+    
+    context = {
+        'task': task,
+        'form': form,
+    }
+
+    return render(request, '../templates/tasks/add-comment.html', context=context)
+
+
+@login_required(login_url='login')
+def all_comments(request, pk):
+    task = get_object_or_404(Task, id=pk)
+    comments = task.comment_set.all()
+
+    context = {
+        'task': task,
+        'comments': comments,
+    }
+
+    return render(request, '../templates/tasks/all-comments.html', context=context)

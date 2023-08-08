@@ -13,6 +13,12 @@
                 <!-- car price -->
                 <p><span class="description">Created at: {{ task.created_at }}</span></p>
                 <p><span class="description">Due date: {{ task.due_date }}</span></p>
+                <p><span class="description">Priority: {{ task.priority }}</span></p>
+                <p><span class="description">Category: {{ task.category }}</span></p>
+                <div class="comment-text">
+                    <a href="{% url 'add-comment' task.id %}">Add Comment</a>
+                    <a href="{% url 'comments' task.id %}">All Comments</a>
+                </div>
             </div>
 
 

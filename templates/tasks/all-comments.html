@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- details section -->
+    <section id="car-details">
+        <h1>Comments</h1>
+        <div class="info-section">
+            <div class="car-header">
+                {% if not comments %}
+                <p class="comment-text">No comments for this task yet</p>
+                {% else %}
+                <ul>
+                    {% for comment in comments %}
+                        <p class="comment-text">{{ comment.created_at }} {{comment.user}}: {{ comment.content }}</p>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
