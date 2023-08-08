@@ -34,3 +34,13 @@ class ProfileLoginForm(AuthenticationForm):
         strip=False,
         widget=forms.PasswordInput(attrs={'autofocus': True})
     )
+
+
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['username', 'email', 'age', 'first_name', 'last_name', 'profile_picture']
+
+
+class DeleteProfileForm(forms.Form):
+    pass

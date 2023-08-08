@@ -16,19 +16,25 @@
                     <img class="car-img" src="{{ profile.profile_picture }}" alt='profile-image'/>
                 {% endif %}
                 <!-- user full name (if any) -->
-                {% if full_name %}
+                {% if not full_name == 'None None' %}
                 <h1>{{ full_name }}</h1>
+                {% else %}
+                <h1></h1>
                 {% endif %}
                 <!-- user username -->
                 <p class="description">Username: {{ profile.username }}</p>
+                <!-- user age -->
+                {% if profile.age %}
+                <p class="description">Age: {{ profile.age }}</p>
+                {% endif %}
                 <!-- user email -->
                 <p class="description">Email: {{ profile.email }}</p>
                 <!-- total price of all cars -->
-                <p class="description">Tasks: </p>
+                <p class="description">Tasks: {{ all_tasks.count }}</p>
                 <!-- Edit/Delete buttons -->
                 <div class="buttons">
-                    <a href="" class="edit-button">Edit</a>
-                    <a href="" class="delete-button">Delete</a>
+                    <a href="{% url 'edit-profile' %}" class="edit-button">Edit</a>
+                    <a href="{% url 'delete-profile' %}" class="delete-button">Delete</a>
                 </div>
             </div>
         </div>
