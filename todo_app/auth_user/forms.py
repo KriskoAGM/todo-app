@@ -24,6 +24,19 @@ class ProfileCreateForm(UserCreationForm):
             'username': forms.TextInput(attrs={'placeholder': 'Username'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
         }
+    
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if Profile.objects.filter(email=email).exists():
+            raise forms.ValidationError("An account with this email already exists.")
+        return email
+
+    def clean_password1(self):
+        password1 = self.cleaned_data['password1']
+        if len(password1) < 8:
+            raise forms.ValidationError("Password must be at least 8 characters.")
+        return password1
+
 
 class ProfileLoginForm(AuthenticationForm):
     username = UsernameField(
@@ -41,6 +54,11 @@ class EditProfileForm(forms.ModelForm):
         model = Profile
         fields = ['username', 'email', 'age', 'first_name', 'last_name', 'profile_picture']
 
+    def clean_age(self):
+        age = self.cleaned_data['age']
+        if age is not None and age < 0:
+            raise forms.ValidationError("Age must be a positive integer.")
+        return age
 
 class DeleteProfileForm(forms.Form):
     pass

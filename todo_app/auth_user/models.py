@@ -46,7 +46,7 @@ class Profile(AbstractUser):
 
     groups = models.ManyToManyField(
         'auth.Group',
-        related_name='user_profiles',  # Add related_name to avoid clash
+        related_name='user_profiles',
         related_query_name='user_profile',
         blank=True,
         help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
@@ -55,7 +55,7 @@ class Profile(AbstractUser):
 
     user_permissions = models.ManyToManyField(
         'auth.Permission',
-        related_name='user_profiles',  # Add related_name to avoid clash
+        related_name='user_profiles',
         related_query_name='user_profile',
         blank=True,
         help_text='Specific permissions for this user.',

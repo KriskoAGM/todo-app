@@ -5,13 +5,29 @@
     <section id="register-page" class="content auth">
         <form id="register" method="post" action="{% url 'register' %}">
             <div class="container">
-                <div class="brand-logo"></div>
+                
                 <h1>Create Profile</h1>
                 
                 {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="error-message">{{ form.username.errors }}</div>
+                {% endif %}
+
                 {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="error-message">{{ form.email.errors }}</div>
+                {% endif %}
+
                 {{ form.password1 }}
+                {% if form.password1.errors %}
+                    <div class="error-message">{{ form.password1.errors }}</div>
+                {% endif %}
+
                 {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <div class="error-message">{{ form.password2.errors }}</div>
+                {% endif %}
+
                 {% csrf_token %}
 
                 <input class="btn submit" type="submit" value="Create Profile">
