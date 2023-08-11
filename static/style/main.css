@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
 html {
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -106,7 +108,7 @@ a {
     letter-spacing: 15px;
 }
 
-.car-card {
+.task-card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -150,7 +152,7 @@ a {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 4px;
-    cursive: pointer;
+    cursor: pointer;
     border-radius: 20px;
     transition: 0.5s;
     transition-property: box-shadow;
@@ -164,7 +166,7 @@ a {
 .details-btn:hover{
     box-shadow: 0 0 100px white;
 }
-.car-card>h3 {
+.task-card>h3 {
     font-family: "Agency FB", serif;
     font-size: 42px;
     font-weight: 700;
@@ -176,13 +178,13 @@ a {
     text-align: center;
     text-transform: uppercase;
 }
-.car-card>h3,
-.car-card>h1{
+.task-card>h3,
+.task-card>h1{
     color: #E2E8EA;
     text-align: center;
 }
 
-.car-card>h1{
+.task-card>h1{
     font-size: 15px;
 }
 

@@ -58,13 +58,26 @@ header nav>* {
 }
 
 footer {
-    padding: 0.5em;
+    padding-block: 10px;
+    padding-inline: 15px;
     width: 100%;
     position: fixed;
     left: 0;
     bottom: 0;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.contacts > a {
+    margin-left: 8px;
+    font-size: 20px;
+}
+
+.rights,
+.contacts {
+    margin: 0;
 }
 
 nav a {

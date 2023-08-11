@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Monoton&display=swap');
-#car-details {
+#task-details {
     position: relative;
     display: block;
     width: 980px;
@@ -10,7 +10,7 @@
 
 }
 
-#car-details>h1 {
+#task-details>h1 {
     letter-spacing: 10px;
     font-family: 'Cinzel', serif;
     color: #E2E8EA;
@@ -35,13 +35,13 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
 }
 
-.car-header {
+.task-header {
     position: relative;
     padding: 25px;
     height: 40%;
 }
 
-.car-header>h1 {
+.task-header>h1 {
     color: #E2E8EA;
     margin-top: 5px;
     font-size: 36px;
@@ -49,7 +49,7 @@
     text-transform: uppercase;
 }
 
-.car-header>h4 {
+.task-header>h4 {
     color: #E2E8EA;
     font-size: 23px;
     font-weight: 400;
@@ -75,7 +75,7 @@
     color: #E2E8EA;
 }
 
-.car-img {
+.profile-img {
     width: 25%;
     position: relative;
     float: left;
